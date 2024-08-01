@@ -1,3 +1,15 @@
 from django.contrib import admin
 
-# Register your models here.
+from blogs.models import Blog, Author
+
+
+@admin.register(Blog)
+class BlogAdmin(admin.ModelAdmin):
+    fields = ['title', 'auther_id', 'content', 'image']
+
+
+
+@admin.register(Author)
+class AuthorAdmin(admin.ModelAdmin):
+    list_display = ('full_name', 'education')
+
